@@ -11,6 +11,7 @@ dotenv.config();
 // Get API key from environment
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY || '';
 const DEFAULT_MODEL = process.env.OPENROUTER_DEFAULT_MODEL || 'google/gemini-2.5-pro-exp-03-25:free';
+const APP_NAME = process.env.APP_NAME || 'OpenRouter MCP Client';
 
 // Check for API key
 if (!OPENROUTER_API_KEY) {
@@ -20,13 +21,18 @@ if (!OPENROUTER_API_KEY) {
 
 async function main() {
   try {
-    console.error('OpenRouter MCP client starting...');
+    // Log platform info when running in Smithery 
+    if (process.env.SMITHERY_SERVER_ID) {
+      console.error(`OpenRouter MCP client running on Smithery (ID: ${process.env.SMITHERY_SERVER_ID})`);
+    } else {
+      console.error('OpenRouter MCP client starting...');
+    }
     
     // Create client
     const client = new OpenRouterClient({
       apiKey: OPENROUTER_API_KEY,
       defaultModel: DEFAULT_MODEL,
-      appName: 'Cursor OpenRouter MCP Client'
+      appName: APP_NAME
     });
     
     console.error('OpenRouter MCP client running on stdio...');
@@ -55,7 +61,7 @@ async function testDirectApi() {
       throw new Error('OpenRouter API key is required');
     }
     
-    const apiClient = new OpenRouterAPIClient(OPENROUTER_API_KEY, 'Cursor OpenRouter Test');
+    const apiClient = new OpenRouterAPIClient(OPENROUTER_API_KEY, APP_NAME);
     
     // Test models endpoint
     const models = await apiClient.fetchModels();
@@ -100,7 +106,7 @@ async function testMultiModelCompletion() {
         { role: 'system', content: 'You are a helpful coding assistant. Provide concise, well-commented code.' },
         { role: 'user', content: 'Write a function in JavaScript that calculates the Fibonacci sequence up to n elements.' }
       ],
-      appName: 'Cursor OpenRouter Multi-Model Test'
+      appName: APP_NAME
     });
     
     const combined = combineCompletions(results);

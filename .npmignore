@@ -1,0 +1,32 @@
+# Source files
+src/
+tsconfig.json
+.env
+.env.example
+
+# Development files
+.git
+.github
+.vscode
+node_modules
+test/
+tests/
+__tests__/
+
+# Docker files
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Smithery files
+smithery.yaml
+
+# Misc
+.DS_Store
+.editorconfig
+.gitignore
+.npmrc
+npm-debug.log
+yarn-error.log
+*.log
+*.tgz 

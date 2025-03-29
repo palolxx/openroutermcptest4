@@ -171,4 +171,45 @@ If Cursor doesn't seem to connect to your client:
 
 - [OpenRouter Documentation](https://openrouter.ai/docs)
 - [Model Context Protocol (MCP) Documentation](https://modelcontextprotocol.ai/)
-- [Cursor Editor](https://cursor.sh/) 
+- [Cursor Editor](https://cursor.sh/)
+
+## Smithery Deployment
+
+You can deploy this MCP client to [Smithery](https://smithery.ai) to make it available to various AI agents and applications.
+
+### Prerequisites
+
+- GitHub account
+- OpenRouter API key
+
+### Steps to Deploy
+
+1. **Fork this repository** to your GitHub account
+
+2. **Sign in to Smithery** at [smithery.ai](https://smithery.ai) using your GitHub account
+
+3. **Add a new server**:
+   - Click "Add Server" in the Smithery dashboard
+   - Select your forked repository
+   - Configure the build settings:
+     - Set the base directory to the repository root
+     - Ensure the Dockerfile and smithery.yaml are detected
+
+4. **Deploy your server**:
+   - Smithery will automatically build and deploy your MCP server
+   - Once deployed, users can configure it with their own OpenRouter API key
+
+### Using Your Deployed Server
+
+After deployment, users can access your server through the Smithery registry:
+
+1. In their MCP client (like Claude, or any other MCP-compatible client), add the server using Smithery's registry
+2. Configure their OpenRouter API key and preferred default model
+3. Start using the server to access multiple AI models through OpenRouter
+
+## Smithery vs. Local Installation
+
+- **Smithery**: Easier for distribution to others; no need for users to clone and build the repository
+- **Local Installation**: Better for personal use and development; more control over the environment
+
+Choose the approach that best fits your needs. 
