@@ -4,11 +4,15 @@
   "description": "Cursor OpenRouterAI MCP client",
   "type": "module",
   "main": "dist/index.js",
+  "bin": {
+    "openrouter-mcp": "dist/index.js"
+  },
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "tsc --watch",
-    "setup": "node install.cjs"
+    "setup": "node install.cjs",
+    "prepare": "npm run build"
   },
   "keywords": [
     "openrouter",
