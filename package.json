@@ -1,0 +1,36 @@
+{
+  "name": "openrouter-mcp-client",
+  "version": "1.0.0",
+  "description": "Cursor OpenRouterAI MCP client",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc --watch",
+    "setup": "node install.cjs"
+  },
+  "keywords": [
+    "openrouter",
+    "mcp",
+    "cursor",
+    "ai",
+    "llm",
+    "modelcontextprotocol"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.4.1",
+    "axios": "^1.7.9",
+    "dotenv": "^16.3.1",
+    "openai": "^4.83.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.1",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+} 

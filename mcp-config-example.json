@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "custom-openrouter-client": {
+      "command": "node",
+      "args": [
+        "FULL_PATH_TO/openrouter-mcp-client/dist/index.js"
+      ],
+      "env": {
+        "OPENROUTER_API_KEY": "your_api_key_here",
+        "OPENROUTER_DEFAULT_MODEL": "google/gemini-2.5-pro-exp-03-25:free"
+      }
+    }
+  }
+} 
