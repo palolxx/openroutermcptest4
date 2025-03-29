@@ -1,0 +1,30 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP
+    type: object
+    required:
+      - openrouterApiKey
+    properties:
+      openrouterApiKey:
+        type: string
+        description: Your OpenRouter API key. Required for accessing models.
+      defaultModel:
+        type: string
+        description: Default OpenRouter model to use if none is specified
+        default: "google/gemini-2.5-pro-exp-03-25:free"
+      appName:
+        type: string
+        description: Custom app name to identify your application to OpenRouter
+        default: "Smithery MCP Client"
+  commandFunction: |
+    (config) => ({
+      command: 'node',
+      args: ['dist/index.js'],
+      env: {
+        OPENROUTER_API_KEY: config.openrouterApiKey,
+        OPENROUTER_DEFAULT_MODEL: config.defaultModel || 'google/gemini-2.5-pro-exp-03-25:free',
+        APP_NAME: config.appName || 'Smithery MCP Client'
+      }
+    }) 
